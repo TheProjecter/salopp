@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<salopp version="0.2">
+
+	<apidef name="chatserver" version="1.0" desc="Sample chat API for testing">
+
+	  <!-- Log in to the server -->
+	  <function name="login" href="login.php" method="post" desc="Log in to the server">
+		<param name="username" type="str" />
+		<param name="pwHash" type="str" />
+		<returns type="String" format="xml" />
+	   </function>
+	   	   
+	   <!-- log out from the server -->
+	   <function name="logout" href="logout.php" method="GET" desc="Log out from the server">
+		 <param name="tokenid" type="int"/>
+	   </function>
+
+	   <!-- get pending messages -->
+	   <function name="get_messages" href="getmsg.php" desc="Retrieve pending messages">
+		 <param name="token" type="int" required="required" />
+		 <param name="after" type="int" required="optional" />
+		 <returns type="Struct" format="json" />
+	   </function>
+
+	</apidef>
+</salopp>
